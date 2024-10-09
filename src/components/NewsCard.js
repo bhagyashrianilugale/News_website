@@ -4,13 +4,14 @@ import gsap from 'gsap'
 import { Link } from 'react-router-dom';
 import Shimmer from './Shimmer';
 import { useGSAP } from '@gsap/react'
+import { useEffect } from 'react'
 
 
 gsap.registerPlugin(useGSAP);
 
 const NewsCard = ({ props }) => {
 
-  useGSAP(()=>{
+  useEffect(()=>{
 
     // Trigger GSAP animation on the '.news_card' class
     setTimeout(()=>{
@@ -38,7 +39,7 @@ const NewsCard = ({ props }) => {
                        </div>
                        <div className='px-4 sm:px-4'>
                               <span className='text-xs font-thin'>{ formattedDate }</span>
-                              <h1 className='text-md font-semibold text-blue-950 leading-6'>{ title }</h1>
+                              <h1 className='text-md font-semibold text-blue-950 leading-6'>{ title.length ? title: "No heading available at the movemet!" }</h1>
                               <p className='text-xs font-thin'>{ description }</p>
                               <span className='py-4 block cursor-pointer text-right text-xs text-gray-600 text-thin'>
                                    <Link to={url} className='hover:underline'>
