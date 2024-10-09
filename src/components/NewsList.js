@@ -13,9 +13,10 @@ const NewsList = () => {
     const { newsDataCategory, showLoading }= useSelector((store)=>store?.news);
     const dispatch = useDispatch();
       console.log(showLoading);
+      
     const getNewsData = async()=>{
             try{
-              const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${ API_KEY }`);
+              const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=cc264e1546e54fa79051b9c0822ce8b5`);
               const jsonData = await response?.json();
               const result = await Promise.all(jsonData?.articles)
                .then((result)=>{
