@@ -5,6 +5,7 @@ import { Bars } from 'react-loading-icons'
 import { toggleLoading, toggleSetError } from '../utils/newsSlice';
 
 const API_KEY = process.env.REACT_APP_NEWS_API_KEY;
+console.log(API_KEY);
 
 const NewsList = () => {
 
