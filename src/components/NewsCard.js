@@ -4,29 +4,29 @@ import gsap from 'gsap'
 import { Link } from 'react-router-dom';
 import Shimmer from './Shimmer';
 import { useGSAP } from '@gsap/react'
-import { useEffect } from 'react'
+// import { useEffect } from 'react'
 
 
-gsap.registerPlugin(useGSAP);
+// gsap.registerPlugin(useGSAP);
 
 const NewsCard = ({ props }) => {
 
-  useEffect(()=>{
+  // useEffect(()=>{
 
-    // Trigger GSAP animation on the '.news_card' class
-    setTimeout(()=>{
-      const animation = gsap.to(".news_card", {
-        x: 40,
-        duration: 1,
-        stagger: 0.25
-   });
+  //   // Trigger GSAP animation on the '.news_card' class
+  //   setTimeout(()=>{
+  //     const animation = gsap.to(".news_card", {
+  //       x: 40,
+  //       duration: 1,
+  //       stagger: 0.25
+  //  });
 
-   //Cleanup function: kill animation on component unmount or re-render
-   return ()=> animation.kill();
+  //  //Cleanup function: kill animation on component unmount or re-render
+  //  return ()=> animation.kill();
 
-    }, 3000);
+  //   }, 3000);
     
-  },[ props ]);
+  // },[ props ]);
 
   return props?.length ? (
        <div className='flex flex-wrap'>
