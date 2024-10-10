@@ -1,4 +1,4 @@
-# Online-Newspaper
+# BIZNEWS
 
 ## Overview
 The Online Newspaper is a web application built using React.js and TailwindCSS and integrated with the NewsAPI to display real-time news articles from various sources across different categories. The application provides users with the latest news on a variety of topics, including technology, sports, business, entertainment, and more.

@@ -14,7 +14,9 @@
         scrollbar-width: none;  
 }
 }
-
+body{
+    cursor: pointer;
+}
 .enhanced-image{
     mix-blend-mode: multiply;
     filter: 

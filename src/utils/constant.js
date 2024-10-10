@@ -1,1 +1,1 @@
-export const Empty_img_holder ="https://cdn2.vectorstock.com/i/1000x1000/85/56/news-banner-template-set-of-microphone-vector-9178556.jpg";
+export const Empty_img_holder ="https://media.istockphoto.com/id/177766582/photo/blank-newspaper-headline-template.jpg?s=612x612&w=0&k=20&c=d41DheIvLxstJrqPrDQrhRG0BAbgObCwx784u-VmOJk=";

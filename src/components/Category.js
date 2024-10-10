@@ -1,0 +1,41 @@
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import useCategory from '../Hooks/useCategory';
+import { addCategory } from '../utils/newsSlice';
+
+const Category = () => {
+    const dispatch = useDispatch(); // Initialize Dispatch
+    const { category }= useSelector((store)=>store.news); // Subscribe store using useSelector
+  
+  
+    useCategory( category ); // Calling custom hook
+    
+   const handleCategory = async(e)=>{
+          let category =  await e.target.getAttribute('data-category');
+          console.log(category);
+          // Dispatch action to add category on store
+          dispatch( addCategory( category ));
+    }
+
+  return (
+    <div>
+        <div className='bg-black h-10 w-full mt-20 fixed z-10 top-0'>
+            <ul className='flex w-full cursor-pointer'  id="category" onClick={ handleCategory }>
+                <li className='h-10 w-20 text-xl mx-10 px-3 py-2 bg-yellow-400'>HOME</li>
+                <li className='text-white py-2 px-3' data-category="politics">POLITICS</li>
+                <li className='text-white py-2 px-3' data-category="technology">INNOVATIONS</li>
+                <li  className='text-white py-2 px-3' data-category="entertainment">ENTERTAINMENT</li>
+                <li className='text-white py-2 px-3' data-category="sports">SPORTS</li>
+                <li className='text-white py-2 px-3' data-category="business">BUSSINESS</li>
+                <li className='text-white py-2 px-3' data-category="science">DISCOVERIESE</li>
+                <li className='text-white py-2 px-3' data-category="health">HEALTH</li>
+                <li className='text-white py-2 px-3' data-category="world">WORD AFFAIRS</li>
+                <li className='text-white py-2 px-3' data-category="finance">FINANCIAL NEWS</li>
+            </ul>
+        </div>
+      
+    </div>
+  )
+}
+
+export default Category;
