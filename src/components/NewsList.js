@@ -40,14 +40,17 @@ const NewsList = () => {
   return showLoading 
          ? (<Bars className="mx-auto mt-40"/>)
          :(
-     <> 
+       <> 
         <div className="bg-gray-200 py-2 px-[2%]">
              { newsDataCategory?.length ? <NewsCard props={ newsDataCategory } /> : <NewsCard props={ newsData } />  }
-             <button 
-                    onClick={ handleNewsItem }
-                    className="bg-blue-400 text-white py-2 px-4 mx-[30%] sm:mx-[40%] md:mx-[45%] my-[2%] rounded-md hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400">
-                      Load More
-             </button>
+             { 
+             ( newsDataCategory?.length > 5 
+               ||  newsData?.length > 5 )
+               && <button 
+                     onClick={ handleNewsItem }
+                     className="bg-blue-400 text-white py-2 px-4 mx-[30%] sm:mx-[40%] md:mx-[45%] my-[2%] rounded-md hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                      View More
+                 </button>}
         </div>
     </>
   );

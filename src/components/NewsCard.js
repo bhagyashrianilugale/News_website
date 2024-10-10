@@ -15,7 +15,7 @@ const NewsCard = ({ props }) => {
         return <div className="w-10/12 rounded-sm sm:px-4 py-1 sm:flex my-1 mx-[10%] shadow-xm shadow-black overflow-x-hidden bg-white" key={ index }> 
 
                        <div className='w-80 relative'>
-                           <img src={ urlToImage ? urlToImage : Empty_img_holder } className="w-80 sm:w-60 h-20 my-2"/>
+                           <img src={ urlToImage ? urlToImage : Empty_img_holder } className="w-80 sm:w-80 h-40 my-2"/>
                            <span className='h-4 w-20 bg-orange-200 text-xs truncate absolute top-4 text-center'>{ source?.name }</span>
                        </div>
 

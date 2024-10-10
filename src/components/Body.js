@@ -1,13 +1,13 @@
 import React from 'react'
 import NewsList from './NewsList';
 import { useDispatch, useSelector } from 'react-redux';
-import { addCategory, addSearchKeyword } from '../utils/newsSlice'
+import { addCategory } from '../utils/newsSlice'
 import useCategory from '../Hooks/useCategory';
 
 const Body = () => {
 
   const dispatch = useDispatch(); // Initialize Dispatch
-  const { category, searchKeyword }= useSelector((store)=>store.news); // Subscribe store using useSelector
+  const { category }= useSelector((store)=>store.news); // Subscribe store using useSelector
 
 
   useCategory( category ); // Calling custom hook
