@@ -10,7 +10,7 @@ const useCategory = ( category )=>{
     const getNewsData = async()=>{
         try{
             // Data fetching from news api
-            const response = await fetch(`https://newsapi.org/v2/top-headlines?q=${ category }&apiKey=cc264e1546e54fa79051b9c0822ce8b5`);
+            const response = await fetch(`https://newsapi.org/v2/top-headlines?q=${ category }&apiKey=${ API_KEY }`);
             const jsonData = await response?.json();
             console.log(jsonData);
            

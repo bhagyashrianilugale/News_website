@@ -8,7 +8,8 @@ const newsSlice = createSlice({
           newsDataCategory: null,
           newsDataSearchKeyword: null,
           setError: false,
-          showLoading : true
+          showLoading : true,
+          newsItem : "5"
     },
     reducers: {
 
@@ -33,10 +34,14 @@ const newsSlice = createSlice({
        },
        toggleLoading : (state)=>{
           state.showLoading = !state.showLoading;
-     },
+       },
+
+       setNewsItem: (state, action)=>{
+            state. newsItem = action.payload;
+       }
      
     },
 });
 
-export const { addCategory, addSearchKeyword, showLoading, addNewsSearchKeyword, addNewsDataCategory,  toggleSetError, toggleLoading  } = newsSlice.actions;
+export const { addCategory, addSearchKeyword, showLoading, addNewsSearchKeyword, addNewsDataCategory,  toggleSetError, toggleLoading, setNewsItem  } = newsSlice.actions;
 export default newsSlice.reducer;

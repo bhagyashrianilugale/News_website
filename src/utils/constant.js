@@ -1,0 +1,1 @@
+export const Empty_img_holder ="https://cdn2.vectorstock.com/i/1000x1000/85/56/news-banner-template-set-of-microphone-vector-9178556.jpg";
