@@ -6,7 +6,7 @@ const newsSlice = createSlice({
           category: null,
           newsDataCategory: null,
           setError: false,
-          newsItem : "5"
+          newsItem : "6"
     },
     reducers: {
 
