@@ -13,7 +13,7 @@ const NewsList = () => {
     
     const getNewsData = async()=>{
             try{
-              const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=26f65aca723d4fd6aa1e25fbbc4a815e`);
+              const response = await fetch(`https://cors-handlers.vercel.app/api/?url=https%3A%2F%2Fnewsapi.org%2Fv2%2Ftop-headlines%3Fcountry%3Dus%26apiKey%3Df07c1f77e1ff4ffb827785f07e09c8c0`);
               const jsonData = await response?.json();
               console.log(jsonData);
               const result = await Promise.all(jsonData?.articles)
