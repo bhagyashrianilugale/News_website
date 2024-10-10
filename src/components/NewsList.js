@@ -41,7 +41,7 @@ const NewsList = () => {
           
           <div className="mt-[8%] w-full bg-yellow-200">
             <Newsvideo/> 
-            <div className='flex flex-wrap'>
+            <div className='md:flex md:flex-wrap'>
              { (newsDataCategory || newsData).slice(0, newsItem)?.map(({ description, title, publishedAt, source, urlToImage, url }, index )=>{
                     const formattedDate = new Date( publishedAt ).toLocaleDateString('en-IN', { month: 'long', day: 'numeric', year: 'numeric'});
                     return (
