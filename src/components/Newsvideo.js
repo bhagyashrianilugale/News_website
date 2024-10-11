@@ -3,6 +3,7 @@ import YouTube from 'react-youtube'
 import { youTubeOpts } from '../utils/constant'
 
 const Newsvideo = () => {
+  // Newsvideo component for live news fetch from You tube
   return (
     <div>
       <div className='h-0 pb-0 mt-[100%] sm:mt-[70%] md:mt-[35%]'>
