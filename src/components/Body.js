@@ -5,10 +5,12 @@ import Category from './Category';
 const Body = () => {
 
   return (
-    <div className='bg-yellow-200 w-screen h-screen'>
+    <>
+     <div className='w-screen h-screen'>
        <Category/>
        <NewsList/>
-    </div>
+     </div>
+    </>
   )
 }
 

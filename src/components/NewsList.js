@@ -2,74 +2,88 @@ import React, { useEffect, useState } from 'react'
 import NewsCard from './NewsCard'
 import { useDispatch, useSelector } from 'react-redux'
 import { Bars } from 'react-loading-icons'
-import { toggleSetError } from '../utils/newsSlice'
-import { setNewsItem } from '../utils/newsSlice'
+import { setNewsItem, addErrorMessage, addNewsData} from '../utils/newsSlice'
 import Newsvideo from './Newsvideo'
 
 const NewsList = () => {
 
-  const { newsDataCategory, newsItem }= useSelector((store)=>store?.news);// Subscribe store using useSelector
+  const { newsData, newsItem }= useSelector((store)=>store?.news);// Subscribe store using useSelector
   const dispatch = useDispatch();
-  const[ newsData, setnewsData ] = useState(null);
-    
+  const [ loading, setLoading ] = useState(true);
+  console.log(newsData);
+
+    // Fetch news data from API
     const getNewsData = async()=>{
             try{
-              const response = await fetch(`https://cors-handlers.vercel.app/api/?url=https%3A%2F%2Fnewsapi.org%2Fv2%2Ftop-headlines%3Fcountry%3Dus%26apiKey%3D554becea9d744b94b474a0163e763a95`);
+              const response = await fetch(
+                  `https://newsapi.org/v2/top-headlines?country=us&apiKey=c53fa724ef9b4e55a2013db1ffb7551b`
+                );
               const jsonData = await response?.json();
-              console.log(jsonData);
-              const result = await Promise.all(jsonData?.articles)
-               .then((result)=>{
-                   setnewsData(result);
-              })
-            }catch(err){
-              console.log(err);
-              dispatch(toggleSetError());
+              const newsData = await jsonData?.articles;
+              console.log(newsData);
+              dispatch(addNewsData( newsData ));
+              setLoading(false); // Set loading to false once date is fetched
+             } catch(err){
+              dispatch( addErrorMessage(err.message)); // Dispatch error message in failure case
+              setLoading(false);
         }
     }
 
     const handleNewsItem = ()=>{
-              dispatch(setNewsItem(  newsData?.length-1 || newsDataCategory?.length-1 ))
+              dispatch(setNewsItem(  newsData?.length-1 ))
     }
+    
+    const formattedDate = (date)=>{
+      return new Date(date).toLocaleDateString('en-IN', {
+            month: 'long',
+            day: 'numeric',
+            year: 'numeric',
+      });
+    };
 
     useEffect(()=>{
         getNewsData();
-        dispatch(setNewsItem("5"));
     }, []);
 
 
-  return ( newsDataCategory?.length || newsData?.length ) ? (<>
-          
-          <div className="mt-[8%] w-full bg-yellow-200">
-            <Newsvideo/> 
-            <div className='md:flex md:flex-wrap'>
-             { (newsDataCategory || newsData).slice(0, newsItem)?.map(({ description, title, publishedAt, source, urlToImage, url }, index )=>{
-                    const formattedDate = new Date( publishedAt ).toLocaleDateString('en-IN', { month: 'long', day: 'numeric', year: 'numeric'});
-                    return (
-                    <div key = { index } className="w-full sm:w-1/2 md:2/3">
+  return loading ? (<Bars 
+                      className="mx-auto mt:[14%] sm:mt-[9%] flex justify-center items-center"
+                      height="200px"
+                      width="200px"
+                      fill="black"
+                     /> ) 
+                 : 
+    (<> <div className="mt-[8%] w-full h-full">
+              <Newsvideo/> 
+                <div className='md:flex md:flex-wrap'>
+                        { ( newsData )?.slice(0, newsItem )?.map(({ description, title, publishedAt, source, urlToImage, url }, index )=>{
+                         return (
+                      <div key = { index } className="w-full h-11/12 sm:w-1/2">
                          <NewsCard 
                                  description = { description } 
-                                 title = {title}  
-                                 formattedDate = {formattedDate} 
+                                 title = { title }  
+                                 formattedDate = {formattedDate(publishedAt)} 
                                  source = { source } 
-                                 urlToImage = {urlToImage} 
-                                 url = {url}  
+                                 urlToImage = { urlToImage } 
+                                 url = { url }  
                                  />
 
-                    </div>)})
-            }
+                        </div>)})
+                        }
                 </div>
-            </div>
-            {
-             ( newsDataCategory?.length > 6 
-               ||  newsData?.length > 6 )
-               && <button 
-                     onClick={ handleNewsItem }
-                     className="bg-yellow-400 text-white py-2 px-4 mx-[30%] sm:mx-[40%] md:mx-[45%] my-[2%] hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+          {(( newsData?.length > 4 ))
+                  ? <button 
+                      onClick={ handleNewsItem }
+                      className="bg-yellow-400 text-white py-2 px-4 mx-[30%] 
+                                   sm:mx-[40%] md:mx-[45%] my-[2%] hover:bg-yellow-500 
+                                   focus:outline-none focus:ring-2 focus:ring-yellow-400">
                       View More
-          </button>
-        }
+                      </button>
+                   : null
+           }
+        </div>
     </>
-  ) : <Bars className="mx-auto mt-[9%] flex items-center"/> ;
+  );
  
 }
 

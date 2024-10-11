@@ -2,14 +2,15 @@ import React from 'react'
 
 const Newsvideo = () => {
   return (
-    <div className='top-[40%]'>
+    <div>
        <div>
-           <iframe 
-                   className="aspect-video overflow-hidden left-0" 
-                   src="https://www.youtube.com/embed/sYZtOFzM78M?si=ROZRSubHtoyFHMeG?si=&autoplay=1&controls=1&hd=1&showinfo=0&modestbranding=1&rel=0" 
-                   title="YouTube video player" frameborder="0" 
-                   referrerPolicy="strict-origin-when-cross-origin"
-                   allowFullScreen>
+          <iframe width="560" height="315" 
+               src="https://www.youtube.com/embed/y5OdL693Q-c?si=&controls=0&hd=1&showinfo=0&autoplay=1&mute=0&loop=1" 
+               title="YouTube video player"
+               className='top-[60%] sm:top-[40%]' 
+               allow="autoplay" 
+               referrerPolicy="strict-origin-when-cross-origin" 
+               allowFullScreen>
            </iframe>
       </div>
   </div>

@@ -2,38 +2,84 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import useCategory from '../Hooks/useCategory';
 import { addCategory } from '../utils/newsSlice';
+import { Link } from 'react-router-dom';
 
 const Category = () => {
-  const dispatch = useDispatch(); // Initialize Dispatch
-  const { category }= useSelector((store)=>store.news); // Subscribe store using useSelector
-  const [ previousCategory, setpreviousCategory ] = useState();
+  const dispatch = useDispatch(); 
+  const { category }= useSelector((store)=>store.news); 
+  const [ activeCategory, setActiveCategory ] = useState(""); // Set default active category
   
   
-  useCategory( category ); // Calling custom hook
-  const handleCategory = async(e)=>{
+  useCategory( category ); // Custom hook to handle category logic
 
-           const Category = await e.target.getAttribute('data-category');
-                                  e.target.setAttribute("class", "bg-yellow-400 py-2 px-3 h-10")
-           setpreviousCategory( e.target );
-           // Dispatch action to add category on store
-           dispatch( addCategory( Category ));
-           if( previousCategory ) previousCategory.setAttribute("class", "text-white py-2 px-3")
+  const handleCategory = async(e)=>{
+            const selectCategory = await e.target.getAttribute('data-category');
+
+            if( selectCategory ){
+                        // Update active category using state
+                        setActiveCategory( selectCategory );
+                        dispatch( addCategory( selectCategory ));
+            }
   }
 
   return (
     <div>
         <div className='bg-black h-10 w-full mt-20  fixed z-10 top-0 overflow-x-scroll no-scrollbar md:overflow-hidden'>
-            <ul className='flex w-full text-md sm:text-lg cursor-pointer'id="category" onClick={ handleCategory }>
-                <li className='h-10 w-20 mx-10 px-3 py-2 bg-yellow-400'>HOME</li>
-                <li className='text-white py-2 px-1 sm:px-3' data-category="politics">POLITICS</li>
-                <li className='text-white py-2 px-1 sm:px-3' data-category="technology">INNOVATIONS</li>
-                <li  className='text-white py-2 px-1 sm:px-3' data-category="entertainment">ENTERTAINMENT</li>
-                <li className='text-white py-2 px-1 sm:px-3' data-category="sports">SPORTS</li>
-                <li className='text-white py-2 px-1 sm:px-3' data-category="business">BUSSINESS</li>
-                <li className='text-white py-2 px-1 sm:px-3' data-category="science">DISCOVERIESE</li>
-                <li className='text-white py-2 px-1 sm:px-3' data-category="health">HEALTH</li>
-                <li className='text-white py-2 px-1 sm:px-3' data-category="world">WORD AFFAIRS</li>
-                <li className='text-white py-2 px-1 sm:px-3' data-category="finance">FINANCIAL</li>
+            <ul 
+                className='flex w-full text-md sm:text-lg cursor-pointer'
+                id="category" 
+                onClick={ handleCategory }>
+                <Link to='/'>
+                <li 
+                 className={'h-10 w-20 mx-10 px-3 py-2 bg-yellow-400'}>
+                      HOME
+                </li>
+                </Link>
+                <li 
+                 className={`py-2 px-1 sm:px-3 ${ activeCategory === 'politics'? 'bg-yellow-400': 'text-white'}`}
+                 data-category="politics">
+                      POLITICS
+                </li>
+                <li 
+                className={`py-2 px-1 sm:px-3 ${ activeCategory === 'technology'? 'bg-yellow-400': 'text-white'}`}
+                data-category="technology">
+                      INNOVATIONS
+                </li>
+                <li  
+                className={`py-2 px-1 sm:px-3 ${ activeCategory === 'entertainment'? 'bg-yellow-400': 'text-white'}`}
+                data-category="entertainment">
+                      ENTERTAINMENT
+                </li>
+                <li 
+                className={`py-2 px-1 sm:px-3 ${ activeCategory === 'world'? 'bg-yellow-400': 'text-white'}`}
+                data-category="world">
+                    WORDAFFAIRS
+                </li>
+                <li 
+                className={`py-2 px-1 sm:px-3 ${ activeCategory === 'sports'? 'bg-yellow-400': 'text-white'}`}
+                data-category="sports">
+                      SPORTS
+                </li>
+                <li 
+                className={`py-2 px-1 sm:px-3 ${ activeCategory === 'business'? 'bg-yellow-400': 'text-white'}`}
+                data-category="business">
+                     BUSSINESS
+                </li>
+                <li 
+                className={`py-2 px-1 sm:px-3 ${ activeCategory === 'science'? 'bg-yellow-400': 'text-white'}`}
+                data-category="science">
+                     DISCOVERIESE
+                </li>
+                <li 
+                className={`py-2 px-1 sm:px-3 ${ activeCategory === 'health'? 'bg-yellow-400': 'text-white'}`}
+                data-category="health">
+                     HEALTH
+                </li>
+                <li 
+                className={`py-2 px-1 sm:px-3 ${ activeCategory === 'finance'? 'bg-yellow-400': 'text-white'}`}
+                data-category="finance">
+                   FINANCIAL
+                </li>
             </ul>
         </div>
       

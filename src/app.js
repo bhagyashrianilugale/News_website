@@ -13,7 +13,7 @@ const App = ()=>{
       <Provider store={ appStore }>
           <Header/>
           <Body/>
-      </Provider>
+       </Provider>
    )
 };
 
@@ -22,13 +22,17 @@ const router = createBrowserRouter([
     path:'/',
     element: <App/>,
     errorElement: <Error/>
+   },
+   {
+      path: "*",
+      element: <Error/>
    }
 ]);
-
   
   
 
-
+// Creating the root element for React to render the app
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
+// Rendering the RouterProvider with the defined router
 root.render(<RouterProvider router={ router }/>);

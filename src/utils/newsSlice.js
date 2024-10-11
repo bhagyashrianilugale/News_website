@@ -4,9 +4,9 @@ const newsSlice = createSlice({
     name:"news",
     initialState: {
           category: null,
-          newsDataCategory: null,
-          setError: false,
-          newsItem : "6"
+          newsData: null,
+          setErrorMessage: null,
+          newsItem : 5
     },
     reducers: {
 
@@ -14,20 +14,20 @@ const newsSlice = createSlice({
             state.category = action.payload;
         },
         
-       addNewsDataCategory: ( state, action)=>{
-            state.newsDataCategory = action.payload;
+       addNewsData: ( state, action)=>{
+            state.newsData = action.payload;
        },
        
-       toggleSetError : ( state )=>{
-            state.setError = !state.setError;
+       addErrorMessage : ( state, action )=>{
+            state.setErrorMessage = action.payload;
        },
       
        setNewsItem: (state, action)=>{
-            state. newsItem = action.payload;
+            state.newsItem = action.payload;
        }
      
     },
 });
 
-export const { addCategory, addSearchKeyword, showLoading, addNewsSearchKeyword, addNewsDataCategory,  toggleSetError, toggleLoading, setNewsItem  } = newsSlice.actions;
+export const { addCategory, addNewsData,  addErrorMessage, setNewsItem  } = newsSlice.actions;
 export default newsSlice.reducer;

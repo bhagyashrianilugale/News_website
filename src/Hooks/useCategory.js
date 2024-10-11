@@ -1,7 +1,6 @@
 import { useDispatch } from "react-redux";
-import {  addNewsDataCategory, toggleSetError } from "../utils/newsSlice";
+import {  addNewsData, addErrorMessage, setNewsItem } from "../utils/newsSlice";
 import { useEffect } from "react";
-const API_KEY = process.env.REACT_APP_NEWS_API_KEY;
 
 const useCategory = ( category )=>{
 
@@ -10,21 +9,21 @@ const useCategory = ( category )=>{
     const getNewsData = async()=>{
         try{
             // Data fetching from news api
-            const response = await fetch(`https://cors-handlers.vercel.app/api/?url=https%3A%2F%2Fnewsapi.org%2Fv2%2Ftop-headlines%3Fq%3D${ category }%26apiKey%3D554becea9d744b94b474a0163e763a95`);
+            const response = await fetch(`https://newsapi.org/v2/top-headlines?q=${ category }&apiKey=c53fa724ef9b4e55a2013db1ffb7551b`);
             const jsonData = await response?.json();
-            console.log(jsonData);
            
           //Update newsDataSlice
 
-           dispatch(addNewsDataCategory( jsonData.articles ));
+            dispatch(addNewsData( jsonData.articles ));
         }catch(err){
-            dispatch(toggleSetError());
+            dispatch( addErrorMessage(err.message));
         }
             
     }
     
     useEffect(()=>{
        category && getNewsData();
+       dispatch(setNewsItem(5)); 
     },[ category ]);
 };
 
