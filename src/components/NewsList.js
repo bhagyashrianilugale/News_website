@@ -16,7 +16,7 @@ const NewsList = () => {
     const getNewsData = async()=>{
             try{
               const response = await fetch(
-                  `https://newsapi.org/v2/top-headlines?country=us&apiKey=c53fa724ef9b4e55a2013db1ffb7551b`
+                  `https://cors-handlers.vercel.app/api/?url=https%3A%2F%2Fnewsapi.org%2Fv2%2Ftop-headlines%3Fcountry%3Dus%26apiKey%3Dc53fa724ef9b4e55a2013db1ffb7551b`
                 );
               const jsonData = await response?.json();
               const newsData = await jsonData?.articles;

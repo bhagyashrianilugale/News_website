@@ -9,7 +9,7 @@ const useCategory = ( category )=>{
     const getNewsData = async()=>{
         try{
             // Data fetching from news api
-            const response = await fetch(`https://newsapi.org/v2/top-headlines?q=${ category }&apiKey=c53fa724ef9b4e55a2013db1ffb7551b`);
+            const response = await fetch(`https://cors-handlers.vercel.app/api/?url=https%3A%2F%2Fnewsapi.org%2Fv2%2Ftop-headlines%3Fq%3D${ category }%26apiKey%3Dc53fa724ef9b4e55a2013db1ffb7551b`);
             const jsonData = await response?.json();
            
           //Update newsDataSlice
