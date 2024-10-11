@@ -11,8 +11,8 @@ const NewsCard = ({description,title, formattedDate, source,urlToImage, url }) =
                         <img 
                            src={ urlToImage?.length ? urlToImage : Empty_news_holder }
                            alt={ title || "news_image" }
-                           className="enhanced-image w-full h-full"/>
-                        <div className='px-4 bg-gradient-to-t text-black sm:from-black w-full bottom-0 sm:absolute  sm:text-white opacity-90 sm:opacity-100'>
+                           className={`enhanced-image w-full h-full`}/>
+                        <div className='px-4 bg-gradient-to-t text-black sm:from-black w-full bottom-0 sm:absolute sm:text-white opacity-90 sm:opacity-100'>
                               <span className='h-10 w-40 text-sm md:text-xl py-1 px-4 text-center font-bold bg-yellow-400 text-black'>
                                  { source?.name || "Unknown Source" }</span> 
                               <span className='text-lg sm:text-xl font-bold  sm:mx-4 block sm:inline'>

@@ -53,7 +53,7 @@ const NewsList = () => {
                       fill="black"
                      /> ) 
                  : 
-    (<> <div className="mt-[8%] w-full h-full">
+    (<> <div className="mt-[10%] w-full h-full">
               <Newsvideo/> 
                 <div className='md:flex md:flex-wrap'>
                         { ( newsData )?.slice(0, newsItem )?.map(({ description, title, publishedAt, source, urlToImage, url }, index )=>{

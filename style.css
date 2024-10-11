@@ -27,10 +27,4 @@ body{
       hue-rotate(4deg)   /* Slight hue adjustment */
 }
 
-iframe{
-    height: 300px;
-    width: 100%;
-    resize: both;
-    overflow: hidden;
-}
 

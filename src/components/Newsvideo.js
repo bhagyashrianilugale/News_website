@@ -1,18 +1,21 @@
 import React from 'react'
+import YouTube from 'react-youtube'
+import { youTubeOpts } from '../utils/constant'
 
 const Newsvideo = () => {
   return (
     <div>
-       <div>
-          <iframe width="560" height="315" 
-               src="https://www.youtube.com/embed/y5OdL693Q-c?si=&controls=0&hd=1&showinfo=0&autoplay=1&mute=0&loop=1" 
-               title="YouTube video player"
-               className='top-[60%] sm:top-[40%]' 
-               allow="autoplay" 
-               referrerPolicy="strict-origin-when-cross-origin" 
-               allowFullScreen>
-           </iframe>
-      </div>
+      <div className='h-0 pb-0 mt-[100%] sm:mt-[70%] md:mt-[35%]'>
+               <YouTube
+                  videoId='PqiW4jy0qPU'
+                  opts={{
+                    ...youTubeOpts,
+                    width: '100%',
+                    height: '100%',
+                  }}
+                  className='absolute top-0 left-0 w-full h-[80%]'
+                />
+          </div>
   </div>
   )
 }
