@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 const NewsCard = ({ newsData }) => {
   const { newsItem } = useSelector((store)=> store?.news)
   const formattedDate = (date)=>{
-    return new Date(date).toLocaleDateString('en-IN', {
+    return new Date(date)?.toLocaleDateString('en-IN', {
           month: 'long',
           day: 'numeric',
           year: 'numeric',
@@ -17,7 +17,7 @@ const NewsCard = ({ newsData }) => {
     <div className='max-w-screen-xl mx-auto p-4'>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-1 sm:gap-2'>
         <div className="grid grid-cols-1 gap-2 sm:gap-4">
-          { newsData?.slice(0, 3*newsItem).map(({ description, title,  publishedAt, source, urlToImage, url }, index ) => (
+          { newsData?.slice(0, 3*newsItem)?.map(({ description, title,  publishedAt, source, urlToImage, url }, index ) => (
             <div key={ index } className="relative bg-gradient-to-t from-black h-[400px] sm:h-full">
               <img
                 src={urlToImage || Empty_news_holder}
@@ -51,7 +51,7 @@ const NewsCard = ({ newsData }) => {
 
         {/* Two More Articles */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-          {newsData?.slice(3, 5*newsItem).map(({ description, title, publishedAt, source, urlToImage, url }, index) => (
+          {newsData?.slice(3, 5*newsItem)?.map(({ description, title, publishedAt, source, urlToImage, url }, index) => (
             <div key={index} className="relative bg-gradient-to-t from-black h-[400px] sm:h-full">
               <img
                 src={ urlToImage || Empty_news_holder }
