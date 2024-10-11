@@ -13,10 +13,9 @@ const useCategory = ( category )=>{
             const jsonData = await response?.json();
            
           //Update newsDataSlice
-
-            dispatch(addNewsData( jsonData.articles ));
+           dispatch(addNewsData( jsonData.articles ));
         }catch(err){
-            dispatch( addErrorMessage(err.message));
+            dispatch( addErrorMessage(err.message)); // Dispatch error message in failure state
         }
             
     }

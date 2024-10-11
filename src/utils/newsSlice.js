@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
+// Creating the 'news' slice
 const newsSlice = createSlice({
     name:"news",
     initialState: {
@@ -10,18 +12,22 @@ const newsSlice = createSlice({
     },
     reducers: {
 
+       // Reducer to update category
        addCategory : (state, action)=>{
             state.category = action.payload;
         },
         
+       // Reducer to update the news data 
        addNewsData: ( state, action)=>{
             state.newsData = action.payload;
        },
        
+       // Reducer to update the error message
        addErrorMessage : ( state, action )=>{
             state.setErrorMessage = action.payload;
        },
       
+       // Reducer to update the number of news items
        setNewsItem: (state, action)=>{
             state.newsItem = action.payload;
        }

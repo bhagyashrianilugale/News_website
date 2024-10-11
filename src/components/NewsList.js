@@ -7,7 +7,7 @@ import Newsvideo from './Newsvideo'
 
 const NewsList = () => {
 
-  const { newsData, newsItem }= useSelector((store)=>store?.news);// Subscribe store using useSelector
+  const { newsData, newsItem }= useSelector((store)=>store?.news); // Subscribe store using useSelector
   const dispatch = useDispatch();
   const [ loading, setLoading ] = useState(true);
   console.log(newsData);
@@ -24,7 +24,7 @@ const NewsList = () => {
               dispatch(addNewsData( newsData ));
               setLoading(false); // Set loading to false once date is fetched
              } catch(err){
-              dispatch( addErrorMessage(err.message)); // Dispatch error message in failure case
+              dispatch( addErrorMessage(err.message)); // Dispatch error message in failure state
               setLoading(false);
         }
     }
@@ -77,7 +77,7 @@ const NewsList = () => {
                       className="bg-yellow-400 text-white py-2 px-4 mx-[30%] 
                                    sm:mx-[40%] md:mx-[45%] my-[2%] hover:bg-yellow-500 
                                    focus:outline-none focus:ring-2 focus:ring-yellow-400">
-                      View More
+                       View More
                       </button>
                    : null
            }
