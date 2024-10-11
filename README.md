@@ -24,7 +24,7 @@ The BIZNEWS is a web application built using React.js and TailwindCSS and integr
 
 ## Live Demo
  
- [Liveurl](https://67074789fb46d9475c9d8d40--newswebsiteabu2024.netlify.app/)
+ [Liveurl](https://newswebsite2024a1309.netlify.app/)
 
 
 ## Getting started 
