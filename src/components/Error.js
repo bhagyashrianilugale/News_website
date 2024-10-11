@@ -8,7 +8,9 @@ const Error = () => {
   return (
     <>
         { setErrorMessage?.length 
-            ? <div className="text-red-900 text-2xl">{ setErrorMessage } Please refresh your page</div> 
+            ? <div className="text-red-900 text-2xl flex font-bold justify-center item-center">
+                  { setErrorMessage } Please refresh your page
+              </div> 
             : <div className="m-auro justify-around p-4">
                <img
                className="border-none h-[40%]  w-[80%] sm:h-[60%] sm:w-[40%] m-auto"

@@ -6,15 +6,15 @@ const Newsvideo = () => {
   // Newsvideo component for live news fetch from You tube
   return (
     <div>
-      <div className='h-0 pb-0 mt-[100%] sm:mt-[70%] md:mt-[35%]'>
+      <div className='h-0 pb-0 sm:mt-[70%] md:mt-[45%]'>
                <YouTube
-                  videoId='PqiW4jy0qPU'
+                  videoId='sr2Ry9JVDtU'
                   opts={{
                     ...youTubeOpts,
                     width: '100%',
                     height: '100%',
-                  }}
-                  className='absolute top-0 left-0 w-full h-[80%]'
+                   }}
+                  className='absolute top-0 w-[100%] sm:w-[95%] md:w-[1240px] h-[80%] mt-[14%] sm:mt-[10%] md:mt-[8%]'
                 />
           </div>
   </div>

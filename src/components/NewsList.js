@@ -10,13 +10,12 @@ const NewsList = () => {
   const { newsData, newsItem }= useSelector((store)=>store?.news); // Subscribe store using useSelector
   const dispatch = useDispatch();
   const [ loading, setLoading ] = useState(true);
-  console.log(newsData);
-
+  const props = ( newsData )?.slice(0, newsItem );
     // Fetch news data from API
     const getNewsData = async()=>{
             try{
               const response = await fetch(
-                  `https://cors-handlers.vercel.app/api/?url=https%3A%2F%2Fnewsapi.org%2Fv2%2Ftop-headlines%3Fcountry%3Dus%26apiKey%3Dc53fa724ef9b4e55a2013db1ffb7551b`
+                  `https://newsapi.org/v2/top-headlines?country=us&apiKey=6892ffea96094ee9a988690b7f19a020`
                 );
               const jsonData = await response?.json();
               const newsData = await jsonData?.articles;
@@ -33,14 +32,6 @@ const NewsList = () => {
               dispatch(setNewsItem(  newsData?.length-1 ))
     }
     
-    const formattedDate = (date)=>{
-      return new Date(date).toLocaleDateString('en-IN', {
-            month: 'long',
-            day: 'numeric',
-            year: 'numeric',
-      });
-    };
-
     useEffect(()=>{
         getNewsData();
     }, []);
@@ -53,25 +44,13 @@ const NewsList = () => {
                       fill="black"
                      /> ) 
                  : 
-    (<> <div className="mt-[10%] w-full h-full">
-              <Newsvideo/> 
-                <div className='md:flex md:flex-wrap'>
-                        { ( newsData )?.slice(0, newsItem )?.map(({ description, title, publishedAt, source, urlToImage, url }, index )=>{
-                         return (
-                      <div key = { index } className="w-full h-11/12 sm:w-1/2">
-                         <NewsCard 
-                                 description = { description } 
-                                 title = { title }  
-                                 formattedDate = {formattedDate(publishedAt)} 
-                                 source = { source } 
-                                 urlToImage = { urlToImage } 
-                                 url = { url }  
-                                 />
-
-                        </div>)})
-                        }
-                </div>
-          {(( newsData?.length > 4 ))
+    (<> <div className="mt-[10%] h-full w-full">
+              <Newsvideo/>
+              <div className="mt-[480px] sm:mt-0">
+                  <NewsCard  newsData = { props }/>
+              </div>
+             
+              {(( newsData?.length > 4 ))
                   ? <button 
                       onClick={ handleNewsItem }
                       className="bg-yellow-400 text-white py-2 px-4 mx-[30%] 
@@ -80,7 +59,7 @@ const NewsList = () => {
                        View More
                       </button>
                    : null
-           }
+             }
         </div>
     </>
   );
