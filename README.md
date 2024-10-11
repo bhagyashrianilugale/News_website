@@ -1,22 +1,39 @@
 # BIZNEWS
 
 ## Overview
-The Online Newspaper is a web application built using React.js and TailwindCSS and integrated with the NewsAPI to display real-time news articles from various sources across different categories. The application provides users with the latest news on a variety of topics, including technology, sports, business, entertainment, and more.
+The BIZNEWS is a web application built using React.js and TailwindCSS and integrated with the NewsAPI to display real-time news articles from various sources across different categories. The application provides users with the latest news on a variety of topics, including sports, politics, business, innovations, entertainment, world affairs, discoveries, health, finance.
+
+## Features
+- Real-time News: Fetches and displays the latest news articles from multiple sources.
+- Category-Based News: Users can filter news based on categories such as sports, business, politics, etc.
+- Video Support: Embedded YouTube news videos within the application.
+- Responsive design: Optimized for both desktop and mobile viewports.
+- Error Handling: Display friendly error messages when news cannot be fetched.
 
 
 ## Tech Stack
 - React: Frontend library for building user interfaces.
-- Redux Toolkit: State management solution for React applications.
-- React Redux: Official React bindings for Redux.
 - Parcel: Web application bundler with fast build times.
+- Tailwind CSS: Utility-first CSS framework.
+- Redux Toolkit: State management solution.
+- React Redux: Official React bindings for Redux.
+- React Icons: A library of popular icons.
+- React Loading Icons: A collection of customizable loading spinners.
+- React Router Dom: Routing library to manage navigation and URL changes.
+- React Youtube: A React component for embedding and controlling YouTube videos in applications.
+
+## Live Demo
+ 
+ [Liveurl](https://67074789fb46d9475c9d8d40--newswebsiteabu2024.netlify.app/)
+
 
 ## Getting started 
-To get started with Online-Newspaper, follow these steps:
+Follow these steps to get the project running locally:
 
 1. Clone the Repository:
 
  ``` javascript
-       git clone 
+       git clone https://github.com/bhagyashrianilugale/News_website.git 
  ```
 2. Install Dependencies:
 
@@ -32,11 +49,7 @@ To get started with Online-Newspaper, follow these steps:
 4. Open Your Browser: Visit
     `http://localhost:1234` to access the application
 
-## Live Demo
- 
- [Liveurl](https://67074789fb46d9475c9d8d40--newswebsiteabu2024.netlify.app/)
-
-## Author
+## Authors
 Bhagyashri Ugale
 Email: bhagyashriugale6970@gmail.com
    

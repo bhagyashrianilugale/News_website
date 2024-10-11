@@ -53,7 +53,7 @@ const Category = () => {
                 <li 
                 className={`py-2 px-1 sm:px-3 ${ activeCategory === 'world'? 'bg-yellow-400': 'text-white'}`}
                 data-category="world">
-                    WORDAFFAIRS
+                    WORLDAFFAIRS
                 </li>
                 <li 
                 className={`py-2 px-1 sm:px-3 ${ activeCategory === 'sports'? 'bg-yellow-400': 'text-white'}`}
