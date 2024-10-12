@@ -23,7 +23,7 @@ The LIVENEWS is a web application built using React.js and TailwindCSS and integ
 
 ## Live Demo
  
- [Liveurl](https://newswebsite24abu.netlify.app/)
+ [Liveurl](https://livenewswebsite2024.netlify.app/)
 
 
 ## Getting started 
