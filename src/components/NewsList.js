@@ -45,7 +45,7 @@ const NewsList = () => {
                       fill="black"
                      /> ) 
                  : 
-    (<> <div className="mt-[4%] h-full w-full">
+    (<> <div className="mt-[34%] sm:mt-[18%] md:mt-[4%] h-full w-full">
               <Newsvideo/>
               <div className="mt-0">
                   <NewsCard  newsData = { props }/>
