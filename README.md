@@ -1,7 +1,7 @@
-# BIZNEWS
+# LIVENEWS
 
 ## Overview
-The BIZNEWS is a web application built using React.js and TailwindCSS and integrated with the NewsAPI to display real-time news articles from various sources across different categories. The application provides users with the latest news on a variety of topics, including sports, politics, business, innovations, entertainment, world affairs, discoveries, health, finance.
+The LIVENEWS is a web application built using React.js and TailwindCSS and integrated with the NewsAPI to display real-time news articles from various sources across different categories. The application provides users with the latest news on a variety of topics, including sports, politics, business, innovations, entertainment, world affairs, discoveries, health, finance.
 
 ## Features
 - Real-time News: Fetches and displays the latest news articles from multiple sources.
@@ -23,7 +23,7 @@ The BIZNEWS is a web application built using React.js and TailwindCSS and integr
 
 ## Live Demo
  
- [Liveurl](https://newsweb2024.netlify.app/)
+ [Liveurl](https://newswebsite24abu.netlify.app/)
 
 
 ## Getting started 
