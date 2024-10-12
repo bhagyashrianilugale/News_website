@@ -20,7 +20,6 @@ The BIZNEWS is a web application built using React.js and TailwindCSS and integr
 - React Icons: A library of popular icons.
 - React Loading Icons: A collection of customizable loading spinners.
 - React Router Dom: Routing library to manage navigation and URL changes.
-- React Youtube: A React component for embedding and controlling YouTube videos in applications.
 
 ## Live Demo
  

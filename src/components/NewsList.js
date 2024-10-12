@@ -15,11 +15,11 @@ const NewsList = () => {
     const getNewsData = async()=>{
             try{
               const response = await fetch(
-                  `https://newsapi.org/v2/top-headlines?country=us&apiKey=6892ffea96094ee9a988690b7f19a020`
+                  `https://cors-handlers.vercel.app/api/?url=https%3A%2F%2Fnewsapi.org%2Fv2%2Ftop-headlines%3Fcountry%3Dus%26apiKey%3D11790d2f312543c1a6f2853dae4c37c8`
                 );
               const jsonData = await response?.json();
               const newsData = await jsonData?.articles;
-              console.log(newsData);
+              console.log(response);
               dispatch(addNewsData( newsData ));
               setLoading(false); // Set loading to false once date is fetched
              } catch(err){
@@ -29,7 +29,8 @@ const NewsList = () => {
     }
 
     const handleNewsItem = ()=>{
-              dispatch(setNewsItem(  newsData?.length-1 ))
+              const item =  newsItem == 5 ? 4 : 5;
+              dispatch(setNewsItem( newsItem + item ))
     }
     
     useEffect(()=>{
@@ -44,9 +45,9 @@ const NewsList = () => {
                       fill="black"
                      /> ) 
                  : 
-    (<> <div className="mt-[10%] h-full w-full">
+    (<> <div className="mt-[4%] h-full w-full">
               <Newsvideo/>
-              <div className="mt-[480px] sm:mt-0">
+              <div className="mt-0">
                   <NewsCard  newsData = { props }/>
               </div>
              

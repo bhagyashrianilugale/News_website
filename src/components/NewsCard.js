@@ -5,7 +5,9 @@ import Empty_news_holder from '../assets/Empty_news_holder.jpg';
 import { useSelector } from 'react-redux';
 
 const NewsCard = ({ newsData }) => {
-  const { newsItem } = useSelector((store)=> store?.news)
+
+  const { newsItem } = useSelector((store)=> store?.news);
+
   const formattedDate = (date)=>{
     return new Date(date)?.toLocaleDateString('en-IN', {
           month: 'long',
@@ -17,7 +19,7 @@ const NewsCard = ({ newsData }) => {
     <div className='max-w-screen-xl mx-auto p-4'>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-1 sm:gap-2'>
         <div className="grid grid-cols-1 gap-2 sm:gap-4">
-          { newsData?.slice(0, 3*newsItem)?.map(({ description, title,  publishedAt, source, urlToImage, url }, index ) => (
+          { newsData?.slice(0, ( newsItem == 5 ? newsItem-2 : newsItem-4 ))?.map(({ description, title,  publishedAt, source, urlToImage, url }, index ) => (
             <div key={ index } className="relative bg-gradient-to-t from-black h-[400px] sm:h-full">
               <img
                 src={urlToImage || Empty_news_holder}
@@ -34,7 +36,7 @@ const NewsCard = ({ newsData }) => {
                 <h1 className='text-md mt-4 md:text-2xl font-bold truncate'>
                   { title || "No heading available at the movemet!" }
                 </h1>
-                <p className='text-sm md:text-lg h-10  md:h-8 font-thin line-clamp-1 
+                <p className='text-sm md:text-lg h-10 md:h-20 font-thin line-clamp-1 
                              text-white hover:h-20 ease-in duration-300 cursor-pointer'>
                        { description?.length? description : null }
                 </p>
@@ -51,7 +53,7 @@ const NewsCard = ({ newsData }) => {
 
         {/* Two More Articles */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-          {newsData?.slice(3, 5*newsItem)?.map(({ description, title, publishedAt, source, urlToImage, url }, index) => (
+          {newsData?.slice(( newsItem == 5 ? newsItem-2 : newsItem-4 ), newsItem)?.map(({ description, title, publishedAt, source, urlToImage, url }, index) => (
             <div key={index} className="relative bg-gradient-to-t from-black h-[400px] sm:h-full">
               <img
                 src={ urlToImage || Empty_news_holder }
@@ -68,7 +70,7 @@ const NewsCard = ({ newsData }) => {
                 <h1 className='text-md mt-4 md:text-2xl font-bold truncate'>
                   { title || "No heading available at the movemet!" }
                 </h1>
-                <p className='text-sm md:text-lg h-10 md:h-8 font-thin line-clamp-1 
+                <p className='text-sm md:text-lg h-10 md:h-20 font-thin line-clamp-1 
                             text-white hover:h-20 ease-in duration-300 
                             cursor-pointer'>
                             { description?.length? description : null }

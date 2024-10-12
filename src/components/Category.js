@@ -24,14 +24,14 @@ const Category = () => {
 
   return (
     <div>
-        <div className='bg-black h-10 w-full mt-20  fixed z-10 top-0 overflow-x-scroll no-scrollbar md:overflow-hidden'>
+        <div className='bg-black h-10 w-full mt-20 cursor-pointer fixed z-10 top-0 overflow-x-scroll no-scrollbar md:overflow-hidden'>
             <ul 
-                className='flex w-full text-md sm:text-lg cursor-pointer'
+                className='flex w-full text-sm sm:text-lg'
                 id="category" 
                 onClick={ handleCategory }>
                 <Link to='/'>
                 <li 
-                 className={'h-10 w-20 mx-10 px-3 py-2 bg-yellow-400'}>
+                 className={'h-10 w-20 mx-10 px-4 py-2 bg-yellow-400'}>
                       HOME
                 </li>
                 </Link>
